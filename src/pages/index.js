@@ -11,8 +11,8 @@ export default function Home() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <body className='w-screen h-screen flex flex-col items-center justify-center'>
-      <h1 className='text-[#20252d] text-5xl font-bold tracking-wider mb-6'>Command Explorer</h1>
+    <div className='w-screen h-screen flex flex-col items-center justify-center'>
+      <h1 className='text-git text-5xl font-bold tracking-wider mb-6'>Command Explorer</h1>
       <p className='text-[#4a4a4a] text-xl text-center w-2/3 tracking-wider transition-colors mb-8'>Find the right commands you need without digging through the web.</p>
       <div className='grid grid-cols-2 gap-10'>
         <Link href="/git" className='flex flex-row justify-center items-center gap-4 border w-[500px] h-40 rounded-xl'>
@@ -23,7 +23,7 @@ export default function Home() {
             src="/assets/images/git.svg"
             alt="Git logo"
           />
-          <h2 className="text-[#20252d] text-2xl font-bold tracking-wider">
+          <h2 className="text-git text-2xl font-bold tracking-wider">
             Git <span className='text-[#f05030]'>Command</span> Explorer
           </h2>
         </Link>
@@ -35,12 +35,12 @@ export default function Home() {
             src="/assets/images/docker.svg"
             alt="Git logo"
           />
-          <h2 className="text-[#20252d] text-2xl font-bold tracking-wider">
-            Docker <span className='text-[#2496ed]'>Command</span> Explorer
+          <h2 className="text-git text-2xl font-bold tracking-wider">
+            Docker <span className='text-docker'>Command</span> Explorer
           </h2>
         </Link>
       </div>
-    </body>
+    </div>
     </>
   );
 }

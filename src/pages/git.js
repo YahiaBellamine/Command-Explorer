@@ -156,107 +156,105 @@ export default function Git() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div className={classnames('home', state.dark )}>
-      <div className="py-8 px-12">
-        {/* <Nav mode={state.dark} onToggle={handleToggle} fastType={state.fastType} /> */}
-        <div className="grid grid-cols-3">
-          <div className="flex flex-col m-12">
-            <h2 className="text-[#20252d] text-3xl font-bold tracking-wider mb-6">
-              Git <span className='text-[#f05030]'>Command</span> Explorer
-            </h2>
+    <div className="py-8 px-12">
+      {/* <Nav mode={state.dark} onToggle={handleToggle} fastType={state.fastType} /> */}
+      <div className="grid grid-cols-3">
+        <div className="flex flex-col m-12">
+          <h2 className="text-git text-3xl font-bold tracking-wider mb-6">
+            Git <span className='text-[#f05030]'>Command</span> Explorer
+          </h2>
 
-            <div className="">
-              <h4 className="text-[#f05030] tracking-wider text-xl font-medium mb-4">I want to:</h4>
+          <div className="">
+            <h4 className="text-[#f05030] tracking-wider text-xl font-medium mb-4">I want to:</h4>
 
+            <Select
+              instanceId='firstSelect'
+              placeholder="..."
+              className='mb-4'
+              isSearchable={true}
+              onChange={onFirstChange}
+              value={state.firstOption}
+              options={gitOptionsFirst}
+            />
+
+            {state.showSecond && (
               <Select
-                instanceId='firstSelect'
+                instanceId='secondSelect'
                 placeholder="..."
                 className='mb-4'
                 isSearchable={true}
-                onChange={onFirstChange}
-                value={state.firstOption}
-                options={gitOptionsFirst}
+                onChange={onSecondChange}
+                value={state.secondOption}
+                options={gitOptionsSecond[state.firstOption.value]}
               />
+            )}
 
-              {state.showSecond && (
-                <Select
-                  instanceId='secondSelect'
-                  placeholder="..."
-                  className='mb-4'
-                  isSearchable={true}
-                  onChange={onSecondChange}
-                  value={state.secondOption}
-                  options={gitOptionsSecond[state.firstOption.value]}
-                />
-              )}
+            {state.showThird && (
+              <Select
+                instanceId='thirdSelect'
+                placeholder="..."
+                isSearchable={true}
+                onChange={onThirdChange}
+                value={state.thirdOption}
+                options={gitOptionsThird[state.secondOption.value]}
+              />
+            )}
+          </div>
+        </div>
 
-              {state.showThird && (
-                <Select
-                  instanceId='thirdSelect'
-                  placeholder="..."
-                  isSearchable={true}
-                  onChange={onThirdChange}
-                  value={state.thirdOption}
-                  options={gitOptionsThird[state.secondOption.value]}
-                />
-              )}
+        <div className="m-12 flex flex-col col-span-2">
+        {state.usage.length > 0 && (
+          <>
+          <h2 className="text-git tracking-wider text-2xl font-bold mb-4">Usage</h2>
+          <div className="bg-git rounded-lg border-l-8 border-solid border-l-[#f05030] flex flex-row justify-between">
+            <pre className='text-white tracking-wider font-semibold p-7 whitespace-pre-wrap'>
+              <Typewriter 
+                onInit={(typewriter) => {
+                  typewriter.typeString(state.usage)
+                  .start();
+                }} 
+                options={{
+                  delay: avgTypingDelay,
+                  cursor: ""
+                }}
+              />
+            </pre>
+            <div className="relative inline-block">
+              <div className={`bg-white rounded-md bottom-[80%] text-git text-xs p-1 border-2 absolute right-[80%] text-center translate-x-1/2 transition-all ease-out duration-300 ${state.copied ? 'block' : 'hidden'}`}>
+                Command Copied
+              </div>
+              <Image
+                className="cursor-pointer w-6 py-6 mr-4"
+                onClick={copyUsage}
+                width={24}
+                height={24}
+                src="/assets/images/clipboard.svg"
+                alt="Clipboard"
+              />
             </div>
           </div>
-
-          <div className="m-12 flex flex-col col-span-2">
-          {state.usage.length > 0 && (
+          {state.nb && (
             <>
-            <h2 className="text-[#20252d] tracking-wider text-2xl font-bold mb-4">Usage</h2>
-            <div className="bg-[#20252d] rounded-lg border-l-8 border-solid border-l-[#f05030] flex flex-row justify-between">
+            <h2 className="text-git tracking-wider text-2xl font-bold my-4">Note</h2>
+            <div className="bg-git rounded-lg border-l-8 border-solid border-l-[#f05030] flex flex-row justify-between">
               <pre className='text-white tracking-wider font-semibold p-7 whitespace-pre-wrap'>
                 <Typewriter 
-                  onInit={(typewriter) => {
-                    typewriter.typeString(state.usage)
-                    .start();
-                  }} 
-                  options={{
-                    delay: avgTypingDelay,
-                    cursor: ""
-                  }}
-                />
+                onInit={(typewriter) => {
+                  typewriter.typeString(state.nb)   
+                  .start();
+                }} 
+                options={{
+                  delay: avgTypingDelay,
+                  cursor: ""
+                }}
+              />
               </pre>
-              <div className="relative inline-block">
-                <div className={`bg-white rounded-md bottom-[80%] text-[#20252d] text-xs p-1 border-2 absolute right-[80%] text-center translate-x-1/2 transition-all ease-out duration-300 ${state.copied ? 'block' : 'hidden'}`}>
-                  Command Copied
-                </div>
-                <Image
-                  className="cursor-pointer w-6 py-6 mr-4"
-                  onClick={copyUsage}
-                  width={24}
-                  height={24}
-                  src="/assets/images/clipboard.svg"
-                  alt="Clipboard"
-                />
-              </div>
             </div>
-            {state.nb && (
-              <>
-              <h2 className="text-[#20252d] tracking-wider text-2xl font-bold my-4">Note</h2>
-              <div className="bg-[#20252d] rounded-lg border-l-8 border-solid border-l-[#f05030] flex flex-row justify-between">
-                <pre className='text-white tracking-wider font-semibold p-7 whitespace-pre-wrap'>
-                  <Typewriter 
-                  onInit={(typewriter) => {
-                    typewriter.typeString(state.nb)   
-                    .start();
-                  }} 
-                  options={{
-                    delay: avgTypingDelay,
-                    cursor: ""
-                  }}
-                />
-                </pre>
-              </div>
-              </>
-            )}
             </>
           )}
-        </div>
-        </div>
+          </>
+        )}
+      </div>
       </div>
     </div>
     </>
