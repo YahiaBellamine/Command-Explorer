@@ -9,7 +9,7 @@ export default function Home() {
       <title>Command Explorer</title>
       <meta name="description" content="Command Explorer" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/assets/images/favicon.ico" />
     </Head>
     <div className='w-screen h-screen flex flex-col items-center justify-center'>
       <h1 className='text-primary text-5xl font-bold tracking-wider mb-6'>Command Explorer</h1>

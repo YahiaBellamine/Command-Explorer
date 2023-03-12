@@ -154,7 +154,7 @@ export default function Docker() {
       <title>Command Explorer</title>
       <meta name="description" content="Command Explorer" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/assets/images/favicon.ico" />
     </Head>
     <div className="py-8 px-12">
       {/* <Nav mode={state.dark} onToggle={handleToggle} fastType={state.fastType} /> */}
