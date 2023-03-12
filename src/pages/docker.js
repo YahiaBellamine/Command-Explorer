@@ -160,7 +160,7 @@ export default function Docker() {
       {/* <Nav mode={state.dark} onToggle={handleToggle} fastType={state.fastType} /> */}
       <div className="grid grid-cols-3">
         <div className="flex flex-col m-12">
-          <h2 className="text-git text-3xl font-bold tracking-wider mb-6">
+          <h2 className="text-primary text-3xl font-bold tracking-wider mb-6">
             Docker <span className='text-docker'>Command</span> Explorer
           </h2>
 
@@ -205,8 +205,8 @@ export default function Docker() {
         <div className="m-12 flex flex-col col-span-2">
         {state.usage.length > 0 && (
           <>
-          <h2 className="text-git tracking-wider text-2xl font-bold mb-4">Usage</h2>
-          <div className="bg-git rounded-lg border-l-8 border-solid border-l-docker flex flex-row justify-between">
+          <h2 className="text-primary tracking-wider text-2xl font-bold mb-4">Usage</h2>
+          <div className="bg-primary rounded-lg border-l-8 border-solid border-l-docker flex flex-row justify-between">
             <pre className='text-white tracking-wider font-semibold p-7 whitespace-pre-wrap'>
               <Typewriter 
                 onInit={(typewriter) => {
@@ -220,7 +220,7 @@ export default function Docker() {
               />
             </pre>
             <div className="relative inline-block">
-              <div className={`bg-white rounded-md bottom-[80%] text-git text-xs p-1 border-2 absolute right-[80%] text-center translate-x-1/2 transition-all ease-out duration-300 ${state.copied ? 'block' : 'hidden'}`}>
+              <div className={`bg-white rounded-md bottom-[80%] text-primary text-xs p-1 border-2 absolute right-[80%] text-center translate-x-1/2 transition-all ease-out duration-300 ${state.copied ? 'block' : 'hidden'}`}>
                 Command Copied
               </div>
               <Image
@@ -235,8 +235,8 @@ export default function Docker() {
           </div>
           {state.nb && (
             <>
-            <h2 className="text-git tracking-wider text-2xl font-bold my-4">Note</h2>
-            <div className="bg-git rounded-lg border-l-8 border-solid border-l-docker flex flex-row justify-between">
+            <h2 className="text-primary tracking-wider text-2xl font-bold my-4">Note</h2>
+            <div className="bg-primary rounded-lg border-l-8 border-solid border-l-docker flex flex-row justify-between">
               <pre className='text-white tracking-wider font-semibold p-7 whitespace-pre-wrap'>
                 <Typewriter 
                 onInit={(typewriter) => {

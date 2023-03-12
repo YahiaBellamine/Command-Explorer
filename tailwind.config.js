@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "git" : "#20252d",
-        "docker" : "#2496ed"
+        "primary": "#20252d",
+        "git": "#f05030",
+        "docker": "#2496ed"
       }
     },
   },
