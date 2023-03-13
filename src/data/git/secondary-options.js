@@ -13,15 +13,6 @@ export const secondaryOptions = {
       nb: 'Modified and deleted files should also be staged with "git add" command'
     }
   ],
-  
-  status: [
-    {
-      value: 'status',
-      label: 'show differences between the index file and the current HEAD commit',
-      usage: 'git status',
-      nb: ''
-    }
-  ],
 
   configure: [
     {
@@ -99,20 +90,13 @@ export const secondaryOptions = {
       value: 'create-new-repo',
       label: 'create a new repository on the command line',
       nb: 'Make sure you are in the right directory and have set SSH key',
-      usage: 'echo "# repo-name" >> README.md\n\n\
-              git init\n\n\
-              git add README.md\n\n\
-              git commit -m "first commit"\n\n\
-              git branch -M master\n\n\
-              git remote add origin git@github.com:YahiaBellamine/repo-name.git\n\n\
-              git push -u origin master'
+      usage: 'echo "# repo-name" >> README.md\n\ngit init\n\ngit add README.md\n\ngit commit -m "first commit"\n\ngit branch -M master\n\ngit remote add origin git@github.com:username/repo-name.git\n\ngit push -u origin master'
     },
     {
       value: 'push-existing-repo',
       label: 'push existing repository to Github',
       nb: 'Make sure you are in the right directory and have set SSH key',
-      usage: 'git remote add origin git@github.com:YahiaBellamine/repo-name.git\n\n\
-              git push -u origin master'
+      usage: 'git remote add origin git@github.com:username/repo-name.git\n\ngit push -u origin master'
     }
   ],
 
@@ -138,13 +122,9 @@ export const secondaryOptions = {
   show: [
     {
       value: 'repo-status',
-      label: 'status of project including staged, unstaged and untracked files',
+      label: 'status',
       usage: 'git status',
-      nb: 'Git essentially has 4 main statuses for the files in a local repository :\n\n\
-          - untracked: The file is new, Git knows nothing about it. If you git add [file], it becomes:\n\n\
-          - staged: Now Git knows the file (tracked), but also made it part of the next commit batch (called the index). If you git commit, it becomes:\n\n\
-          - unchanged: The file has not changed since its last commit. If you modify it, it becomes:\n\n\
-          - unstaged: Modified but not part of the next commit yet. You can stage it again with git add'
+      nb: 'Git essentially has 4 main statuses for the files in a local repository :\n\n- untracked: The file is new, Git knows nothing about it. If you git add [file], it becomes:\n\n- staged: Now Git knows the file (tracked), but also made it part of the next commit batch (called the index). If you git commit, it becomes:\n\n- unchanged: The file has not changed since its last commit. If you modify it, it becomes:\n\n- unstaged: Modified but not part of the next commit yet. You can stage it again with git add'
     },
     {
       value: 'logs',
@@ -252,18 +232,11 @@ export const secondaryOptions = {
 
   clone: [
     {
-      value: 'clone-repo-into-a-new-dir',
-      label: 'existing repo into a new directory',
+      value: 'clone-repo',
+      label: 'existing repo',
       usage: 'git clone [repo-url] [directory]',
       nb:
         'The repo is cloned into the specified directory\n\nIf you don\'t specify [directory] it will create a new folder with the same name as the repository name'
-    },
-    {
-      value: 'clone-repo-into-a-current-dir',
-      label: 'existing repo into the current directory',
-      usage: 'git clone [repo-url] .',
-      nb:
-        'The repo is cloned into the current directory\n\nThe current directory is represented with a "." (period)'
     },
     {
       value: 'clone-repo-with-submodule-into-a-current-dir',
