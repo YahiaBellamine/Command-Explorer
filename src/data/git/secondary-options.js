@@ -2,14 +2,24 @@ export const secondaryOptions = {
   commit: [
     {
       value: 'local-changes',
-      label: 'commit all local changes in tracked files',
-      usage: 'git commit -a'
+      label: 'commit all local changes in tracked files (modified/deleted)',
+      usage: 'git commit -am [message]',
+      nb: '-a/--all option tell the command to automatically stage files that have been modified and deleted, but new files you have not told Git about are not affected.\n\nTo commit new files, use "git add" command.'
     },
     {
       value: 'staged-changes',
       label: 'commit all staged changes',
       usage: 'git commit -m [message]',
-      nb: 'Replace [message] with your commit message.'
+      nb: 'Modified and deleted files should also be staged with "git add" command'
+    }
+  ],
+  
+  status: [
+    {
+      value: 'status',
+      label: 'show differences between the index file and the current HEAD commit',
+      usage: 'git status',
+      nb: ''
     }
   ],
 
@@ -76,15 +86,33 @@ export const secondaryOptions = {
       value: 'to-last-commit-from-remote',
       label: 'to last commit on remote branch',
       usage: 'git reset --hard [repo]/[branch]'
+    },
+    {
+      value: 'switch-branch',
+      label: 'switch branch',
+      usage: 'git checkout [branch]'
     }
   ],
 
   initialize: [
     {
-      value: 'new-repo',
-      label: 'a new repository',
-      nb: 'Make sure you are in the right directory',
-      usage: 'git init'
+      value: 'create-new-repo',
+      label: 'create a new repository on the command line',
+      nb: 'Make sure you are in the right directory and have set SSH key',
+      usage: 'echo "# repo-name" >> README.md\n\n\
+              git init\n\n\
+              git add README.md\n\n\
+              git commit -m "first commit"\n\n\
+              git branch -M master\n\n\
+              git remote add origin git@github.com:YahiaBellamine/repo-name.git\n\n\
+              git push -u origin master'
+    },
+    {
+      value: 'push-existing-repo',
+      label: 'push existing repository to Github',
+      nb: 'Make sure you are in the right directory and have set SSH key',
+      usage: 'git remote add origin git@github.com:YahiaBellamine/repo-name.git\n\n\
+              git push -u origin master'
     }
   ],
 
@@ -111,7 +139,12 @@ export const secondaryOptions = {
     {
       value: 'repo-status',
       label: 'status of project including staged, unstaged and untracked files',
-      usage: 'git status'
+      usage: 'git status',
+      nb: 'Git essentially has 4 main statuses for the files in a local repository :\n\n\
+          - untracked: The file is new, Git knows nothing about it. If you git add [file], it becomes:\n\n\
+          - staged: Now Git knows the file (tracked), but also made it part of the next commit batch (called the index). If you git commit, it becomes:\n\n\
+          - unchanged: The file has not changed since its last commit. If you modify it, it becomes:\n\n\
+          - unstaged: Modified but not part of the next commit yet. You can stage it again with git add'
     },
     {
       value: 'logs',
@@ -223,7 +256,7 @@ export const secondaryOptions = {
       label: 'existing repo into a new directory',
       usage: 'git clone [repo-url] [directory]',
       nb:
-        'The repo is cloned into the specified directory\n\nReplace "directory" with the directory you want'
+        'The repo is cloned into the specified directory\n\nIf you don\'t specify [directory] it will create a new folder with the same name as the repository name'
     },
     {
       value: 'clone-repo-into-a-current-dir',
@@ -277,7 +310,7 @@ export const secondaryOptions = {
       label: 'new changes',
       usage: 'git add [file.ext]',
       nb:
-        'To add all the files in the current directory, use "git add ."\n\nTo add a directory use "git add [directory]"'
+        '"git add" will track untracked files, and stage any file for the next commit\n\nTo add a directory use "git add [directory]"'
     },
     {
       value: 'add-new-branch',
@@ -309,9 +342,19 @@ export const secondaryOptions = {
 
   push: [
     {
-      value: 'new-remote-branch',
-      label: 'non-existent remote branch',
-      usage: 'git push -u origin [branchname]'
+      value: 'push',
+      label: 'push local changes',
+      usage: 'git push -u origin [branchname]',
+      nb: '-u/--set-upstream allows to set the upstream. This allows to push to the same branch with the command "git push"'
+    }
+  ],
+  
+  pull: [
+    {
+      value: 'pull',
+      label: 'fetch remote changes',
+      usage: 'git pull',
+      nb: 'Incorporates changes from a remote repository into the current branch.'
     }
   ],
 
