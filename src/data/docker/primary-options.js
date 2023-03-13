@@ -1,32 +1,13 @@
-const options = [
-  { value: 'add', label: 'add' },
-  { value: 'commit', label: 'commit' },
-  { value: 'revert', label: 'revert/reset' },
-  { value: 'initialize', label: 'initialize' },
-  { value: 'modify', label: 'modify' },
-  { value: 'show', label: 'show/view' },
-  { value: 'delete', label: 'delete/remove' },
-  { value: 'compareCommits', label: 'compare two commits' },
-  { value: 'configure', label: 'configure' },
-  { value: 'clone', label: 'clone' },
-  { value: 'ignore', label: 'ignore' },
-  { value: 'rename', label: 'rename' },
-  { value: 'merge', label: 'merge' },
-  { value: 'squash', label: 'squash' },
-  { value: 'stash', label: 'stash' },
-  { value: 'debug', label: 'debug' },
-  { value: 'recover', label: 'recover' },
-  { value: 'synchronize', label: 'synchronize' },
-  { value: 'rebase', label: 'rebase' },
-  { value: 'cherrypick', label: 'cherry-pick' },
+export const primaryOptions = [
+  { value: 'build-image', label: 'build a container image' },
+  { value: 'run-container', label: 'run a container' },
+  { value: 'show', label: 'show' },
+  { value: 'stop-remove', label: 'stop/remove' },
+  { value: 'exec', label: 'execute' },
+  { value: 'volume', label: 'persist (data/src code) between host\'s file system and container\'s file system' },
+  { value: 'multi-container-app', label: 'create multi container app' },
+  { value: 'dns', label: 'get the IP Address of a container on a network' },
+  { value: 'compose', label: 'create a compose file (.yml)' },
 ];
 
-export const primaryOptions = options.sort((x, y) => {
-  if (x.value < y.value) {
-    return -1;
-  }
-  if (x.value > y.value) {
-    return 1;
-  }
-  return 0;
-});
+

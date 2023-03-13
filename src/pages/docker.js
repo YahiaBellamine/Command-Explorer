@@ -2,11 +2,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Select from 'react-select';
 import Typewriter from 'typewriter-effect';
-import classnames from 'classnames';
 // import { isMobile } from 'react-device-detect';
 import { useState } from 'react';
 // import { Nav } from '../components';
-import { dockerOptionsFirst, dockerOptionsSecond, dockerOptionsThird } from '../data';
+import { dockerOptionsFirst, dockerOptionsSecond } from '../data';
 
 export default function Docker() {
   
@@ -17,8 +16,6 @@ export default function Docker() {
       firstOption: null,
       showSecond: false,
       secondOption: null,
-      showThird: false,
-      thirdOption: null,
       nb: '',
       usage: '',
       copied: false
@@ -43,7 +40,6 @@ export default function Docker() {
         firstOption: selectedOption,
         showSecond: true,
         secondOption: null,
-        showThird: false,
         nb: '',
         usage: ''
       }));
@@ -56,45 +52,6 @@ export default function Docker() {
   };
 
   const onSecondChange = async (selectedOption) => {
-    if (selectedOption.usage) {
-      setState((prevState) => ({
-        ...prevState,
-        nb: '',
-        usage: ''
-      }));
-
-      await setTimeout(()=>{}, 0);
-      
-      setState((prevState) => ({
-        ...prevState,
-        secondOption: selectedOption,
-        showThird: false,
-        nb: selectedOption.nb,
-        usage: selectedOption.usage,
-        thirdOption: null
-      }));
-    } else if (dockerOptionsThird[selectedOption.value].length === 1) {
-      setState((prevState) => ({ 
-        ...prevState,
-        secondOption: selectedOption,
-        showThird: true,
-        nb: '',
-        usage: ''
-      }));
-      onThirdChange(dockerOptionsThird[selectedOption.value][0]);
-    } else {
-      setState((prevState) => ({ 
-        ...prevState,
-        secondOption: selectedOption,
-        showThird: true,
-        thirdOption: null,
-        nb: '',
-        usage: ''
-      }));
-    }
-  };
-
-  const onThirdChange = async (selectedOption) => {
     setState((prevState) => ({
       ...prevState,
       nb: '',
@@ -102,12 +59,12 @@ export default function Docker() {
     }));
 
     await setTimeout(()=>{}, 0);
-      
-    setState((prevState) => ({ 
+    
+    setState((prevState) => ({
       ...prevState,
-      thirdOption: selectedOption,
+      secondOption: selectedOption,
       nb: selectedOption.nb,
-      usage: selectedOption.usage
+      usage: selectedOption.usage,
     }));
   };
 
@@ -188,17 +145,7 @@ export default function Docker() {
                 options={dockerOptionsSecond[state.firstOption.value]}
               />
             )}
-
-            {state.showThird && (
-              <Select
-                instanceId='thirdSelect'
-                placeholder="..."
-                isSearchable={true}
-                onChange={onThirdChange}
-                value={state.thirdOption}
-                options={dockerOptionsThird[state.secondOption.value]}
-              />
-            )}
+            
           </div>
         </div>
 

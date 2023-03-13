@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Select from 'react-select';
 import Typewriter from 'typewriter-effect';
-import classnames from 'classnames';
 // import { isMobile } from 'react-device-detect';
 import { useState } from 'react';
 // import { Nav } from '../components';
