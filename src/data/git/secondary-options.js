@@ -56,28 +56,18 @@ export const secondaryOptions = {
     }
   ],
 
-  revert: [
+  'undo-local-changes': [
     {
-      value: 'specific-commit',
-      label: 'a specific commit',
-      usage: 'git revert [commit-hash]',
-      nb: 'Use git log to see the hash of each commit'
+      value: 'local-before-committing',
+      label: 'before committing',
     },
     {
-      value: 'specific-file',
-      label: 'a specific file',
-      usage: 'git checkout [repo]/[branch] [filename]',
+      value: 'local-after-committing',
+      label: 'after committing',
     },
-    {
-      value: 'to-last-commit',
-      label: 'to last commit',
-      usage: 'git reset --hard'
-    },
-    {
-      value: 'to-last-commit-from-remote',
-      label: 'to last commit on remote branch',
-      usage: 'git reset --hard [repo]/[branch]'
-    },
+  ],
+
+  switch: [
     {
       value: 'switch-branch',
       label: 'switch branch',
@@ -188,7 +178,7 @@ export const secondaryOptions = {
       label: 'untracked files',
       usage: 'git clean -[flag]',
       nb:
-        'replace -[flag] with:\n -i for interactive command\n -n to preview what will be removed\n -f to remove forcefully\n -d to remove directories\n -X to remove ignored files\n -x to remove ignored and non-ignored files'
+        'replace -[flag] with:\n-i for interactive command\n-n to preview what will be removed\n-f to remove forcefully\n-d to remove directories\n-X to remove ignored files\n-x to remove ignored and non-ignored files'
     },
     {
       value: 'files-from-index',

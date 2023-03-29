@@ -16,7 +16,7 @@ export const tertiaryOptions = {
       value: 'particular-period',
       label: 'since a particular period',
       usage: 'git log --since=period',
-      nb: 'Replace period with intended timeframe e.g git log --since=3days. You can use dates like 2018-12-31.\n\n Similar flags are --until, --before, --after'
+      nb: 'Replace period with intended timeframe e.g git log --since=3days. You can use dates like 2018-12-31.\n\nSimilar flags are --until, --before, --after'
     },
     {
       value: 'commit-on-oneline',
@@ -101,5 +101,36 @@ export const tertiaryOptions = {
       usage: 'git branch | grep [regex pattern] | xargs git branch -D',
       nb: 'e.g. git branch | grep "-" | xargs git branch -D will delete all branches that have \'-\' in their names or git branch | grep -v "master\\|staging" | xargs git branch -D will delete all branches except staging and master.\n\nNB: Always put your regex pattern in quotes'
     }
+  ],
+
+  'local-before-committing': [
+    {
+      value: 'unstaged',
+      label: 'unstaged',
+      usage: 'To overwrite local changes:\ngit checkout -- [file]\n\nTo save local changes so you can re-use them later:\ngit stash\n\nTo discard local changes to all files, permanently:\ngit reset --hard'
+    },
+    {
+      value: 'staged',
+      label: 'staged',
+      usage: 'To unstage the file but keep your changes:git restore --staged [file]\n\nTo unstage everything but keep your changes: git reset\n\nTo unstage the file to current commit (HEAD): git reset HEAD [file]\n\nTo discard all local changes, but save them for later: git stash\n\nTo discard everything permanently: git reset --hard'
+    }
+  ],
+  
+  'local-after-committing': [
+    {
+      value: 'staged-no-modif-history',
+      label: 'staged without modifying history',
+      usage: 'To swap additions and deletions changes introduced by commit B: git revert [commit-B-SHA]\n\nTo undo changes on a single file or directory from commit B, but retain them in the staged state: git checkout [commit-B-SHA] [file]\n\nTo undo changes on a single file or directory from commit B, but retain them in the unstaged state: git reset [commit-B-SHA] [file]',
+      nb:'To look through a log of commits, type git log.'
+    },
+    {
+      value: 'staged-modif-history',
+      label: 'staged with history modification',
+      usage: 'To unstage the file but keep your changes:git restore --staged [file]\n\nTo unstage everything but keep your changes:\ngit reset\n\nTo unstage the file to current commit (HEAD):\ngit reset HEAD [file]\n\nTo discard all local changes, but save them for later: git stash\n\nTo discard everything permanently:\ngit reset --hard'
+    }
+  ],
+
+  'remote-changes': [
+
   ]
 };
