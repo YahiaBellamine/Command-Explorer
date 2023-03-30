@@ -112,7 +112,7 @@ export const tertiaryOptions = {
     {
       value: 'staged',
       label: 'staged',
-      usage: 'To unstage the file but keep your changes:git restore --staged [file]\n\nTo unstage everything but keep your changes: git reset\n\nTo unstage the file to current commit (HEAD): git reset HEAD [file]\n\nTo discard all local changes, but save them for later: git stash\n\nTo discard everything permanently: git reset --hard'
+      usage: 'To unstage the file but keep your changes:\ngit restore --staged [file]\n\nTo unstage everything but keep your changes:\ngit reset\n\nTo unstage the file to current commit (HEAD):\ngit reset HEAD [file]\n\nTo discard all local changes, but save them for later:\ngit stash\n\nTo discard everything permanently:\ngit reset --hard'
     }
   ],
   
@@ -120,13 +120,13 @@ export const tertiaryOptions = {
     {
       value: 'staged-no-modif-history',
       label: 'staged without modifying history',
-      usage: 'To swap additions and deletions changes introduced by commit B: git revert [commit-B-SHA]\n\nTo undo changes on a single file or directory from commit B, but retain them in the staged state: git checkout [commit-B-SHA] [file]\n\nTo undo changes on a single file or directory from commit B, but retain them in the unstaged state: git reset [commit-B-SHA] [file]',
+      usage: 'To swap additions and deletions changes introduced by commit B:\ngit revert [commit-B-SHA]\n\nTo undo changes on a single file or directory from commit B, but retain them in the staged state:\ngit checkout [commit-B-SHA] [file]\n\nTo undo changes on a single file or directory from commit B, but retain them in the unstaged state:\ngit reset [commit-B-SHA] [file]',
       nb:'To look through a log of commits, type git log.'
     },
     {
       value: 'staged-modif-history',
       label: 'staged with history modification',
-      usage: 'To unstage the file but keep your changes:git restore --staged [file]\n\nTo unstage everything but keep your changes:\ngit reset\n\nTo unstage the file to current commit (HEAD):\ngit reset HEAD [file]\n\nTo discard all local changes, but save them for later: git stash\n\nTo discard everything permanently:\ngit reset --hard'
+      usage: 'To unstage the file but keep your changes:\ngit restore --staged [file]\n\nTo unstage everything but keep your changes:\ngit reset\n\nTo unstage the file to current commit (HEAD):\ngit reset HEAD [file]\n\nTo discard all local changes, but save them for later:\ngit stash\n\nTo discard everything permanently:\ngit reset --hard'
     }
   ],
 

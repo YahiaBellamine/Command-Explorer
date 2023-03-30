@@ -66,6 +66,14 @@ export const secondaryOptions = {
       label: 'after committing',
     },
   ],
+  
+  'undo-remote-changes': [
+    {
+      value: 'reset-to-a-certain-commit',
+      label: 'reset to a certain commit',
+      usage: 'git reset --hard [commit-hash]\n\ngit push -f origin [branch]',
+    },
+  ],
 
   switch: [
     {
